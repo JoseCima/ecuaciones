@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         bIngresar.setOnClickListener{
             val nUsuario = ptName.getText().toString()
             val pass:String = ptPassword.getText().toString()
-            if(nUsuario.equals("1") || pass.equals("1")){
-                if(nUsuario.equals("1")){
-                    if(pass.equals("1")){
+            if(nUsuario.equals("JoseCima") || pass.equals("1234")){
+                if(nUsuario.equals("JoseCima")){
+                    if(pass.equals("1234")){
                         var intent = Intent(this,Opciones::class.java)
                         startActivity(intent)
                         Toast.makeText(this,"Bienvenido "+ ptName.text + ", resolvamos esas ecuaciones!", Toast.LENGTH_LONG).show()

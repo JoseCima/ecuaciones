@@ -218,7 +218,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="10dp"
-            android:text="Calcular"
+            android:text="Resolver"
             app:rippleColor="#A7FFEB" />
 
         <Button
