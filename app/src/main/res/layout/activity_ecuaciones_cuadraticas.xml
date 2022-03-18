@@ -16,15 +16,15 @@
         android:background="@color/toolbar"
         android:elevation="4dp"
         android:textAlignment="center"
-        app:title="Ecuaciones Cuadraticas"
+        app:title="Ecuaciones Cuadráticas"
         app:titleTextColor="@color/white"></androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Rellena los datos por favor."
+        android:layout_marginTop="20dp"
+        android:text="Rellene los datos por favor."
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textStyle="bold" />
@@ -142,14 +142,41 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCalcularCuadraticas"
-        android:layout_width="199dp"
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:text="Calcular"
-        app:rippleColor="#A7FFEB" />
+        android:foregroundGravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCalcularCuadrado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:text="Calcular"
+            app:rippleColor="#A7FFEB" />
+
+        <Button
+            android:id="@+id/btnLimpiarCuadrado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Limpiar"
+            app:rippleColor="#A7FFEB" />
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -176,6 +203,23 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mensajeCuadratica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -188,7 +232,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:textColor="@color/black" />

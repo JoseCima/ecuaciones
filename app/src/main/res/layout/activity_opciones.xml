@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="¿Qué tipo de ecuación quieres resolver?"
+        android:text="¿Qué tipo de ecuación quiere resolver?"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textStyle="bold" />

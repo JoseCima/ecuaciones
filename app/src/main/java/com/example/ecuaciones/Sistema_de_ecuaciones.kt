@@ -51,8 +51,19 @@ class Sistema_de_ecuaciones : AppCompatActivity() {
         }
 
 
+        fun limpiarTextPlain(){
+            a1.setText("")
+            a2.setText("")
+            b1.setText("")
+            b2.setText("")
+            c1.setText("")
+            c2.setText("")
+        }
+
+
         limpiar.setOnClickListener {
             limpiar()
+            limpiarTextPlain()
         }
 
 
@@ -71,8 +82,10 @@ class Sistema_de_ecuaciones : AppCompatActivity() {
                     val resY = y.toString()
 
                     limpiar()
-                    respuestaX.setText("X =\n "+resX)
-                    respuestaY.setText("Y =\n "+resY)
+
+
+                    respuestaX.setText("X = "+resX)
+                    respuestaY.setText("Y = "+resY)
                     mostrarEc1.setText("Su primera ecuación:")
                     mostrarEc2.setText("Su segunda ecuación:")
                     mostrarSis.setText("("+varA1.toInt()+")X + ("+varB1.toInt()+")Y = "+varC1.toInt())

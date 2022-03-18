@@ -18,14 +18,33 @@ class EcuacionesCuadraticas : AppCompatActivity() {
         val b1 = findViewById<EditText>(R.id.variableB)
         val c1 = findViewById<EditText>(R.id.variableC)
 
-        val btnCalcular = findViewById<Button>(R.id.btnCalcularCuadraticas)
+        val btnCalcular = findViewById<Button>(R.id.btnCalcularCuadrado)
+        val btnLimpiar = findViewById<Button>(R.id.btnLimpiarCuadrado)
         val respuestaX1 = findViewById<TextView>(R.id.respCuadratica)
         val respuestaX2 = findViewById<TextView>(R.id.respCuadratica2)
+        val mostrarMensaje = findViewById<TextView>(R.id.mensajeCuadratica)
+        val mostrarEc = findViewById<TextView>(R.id.mostrarCuadratica)
 
 
         fun limpiar(){
             respuestaX1.setText("")
             respuestaX2.setText("")
+            mostrarMensaje.setText("")
+            mostrarEc.setText("")
+
+        }
+
+        fun limpiarPlainText(){
+            //Lipiando plain text
+            a1.setText("")
+            b1.setText("")
+            c1.setText("")
+        }
+
+
+        btnLimpiar.setOnClickListener {
+            limpiar()
+            limpiarPlainText()
         }
 
         btnCalcular.setOnClickListener {
@@ -45,8 +64,13 @@ class EcuacionesCuadraticas : AppCompatActivity() {
 
                 if(b1.getText().toString() == "" && c1.getText().toString() == ""){
 
+                    val varB1 = 0.0
+                    val varC1 = 0.0
+
                     limpiar()
                     respuestaX1.setText("Única solución: X = 0")
+                    mostrarMensaje.setText("Su ecuación cuadrática es:")
+                    mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
 
 
                     //SEGUNDA CONDICÓN
@@ -67,10 +91,14 @@ class EcuacionesCuadraticas : AppCompatActivity() {
                         if(x1 == x2){
                             limpiar()
                             respuestaX1.setText("Única solución: X = "+resX1)
+                            mostrarMensaje.setText("Su ecuación cuadrática es:")
+                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
                         }else{
                             limpiar()
                             respuestaX1.setText("X1 = "+resX1)
                             respuestaX2.setText("X2 = "+resX2)
+                            mostrarMensaje.setText("Su ecuación cuadrática es:")
+                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
                         }
 
                     }else{
@@ -96,10 +124,14 @@ class EcuacionesCuadraticas : AppCompatActivity() {
                         if(x1 == x2){
                             limpiar()
                             respuestaX1.setText("Única solución: X = "+resX1)
+                            mostrarMensaje.setText("Su ecuación cuadrática es:")
+                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
                         }else{
                             limpiar()
                             respuestaX1.setText("X1 = "+resX1)
                             respuestaX2.setText("X2 = "+resX2)
+                            mostrarMensaje.setText("Su ecuación cuadrática es:")
+                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
                         }
 
                     }else{
@@ -124,10 +156,14 @@ class EcuacionesCuadraticas : AppCompatActivity() {
                         if(x1 == x2){
                             limpiar()
                             respuestaX1.setText("Única solución: X = "+resX1)
+                            mostrarMensaje.setText("Su ecuación cuadrática es:")
+                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
                         }else{
                             limpiar()
                             respuestaX1.setText("X1 = "+resX1)
                             respuestaX2.setText("X2 = "+resX2)
+                            mostrarMensaje.setText("Su ecuación cuadrática es:")
+                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
                         }
 
                     }else{
@@ -148,7 +184,7 @@ class EcuacionesCuadraticas : AppCompatActivity() {
 
             if((a1.getText().toString()) == ""){
                 limpiar()
-                respuestaX1.setText("La variable A no puede ser nulo.")
+                respuestaX1.setText("La variable A no puede ser nula.")
             }else if((a1.getText().toString()).toDouble() == 0.0){
                 limpiar()
                 respuestaX1.setText("La variable A no puede ser igual a 0.")
