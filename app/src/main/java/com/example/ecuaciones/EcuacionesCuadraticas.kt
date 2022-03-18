@@ -133,7 +133,7 @@ class EcuacionesCuadraticas : AppCompatActivity() {
                     }else{
                         limpiar()
                         respuestaX1.setText("No existe solución en el campo de los números reales.")
-                    }}
+                    }
 
                 }
 
