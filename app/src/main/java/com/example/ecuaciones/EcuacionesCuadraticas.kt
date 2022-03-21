@@ -26,6 +26,7 @@ class EcuacionesCuadraticas : AppCompatActivity() {
         val mostrarEc = findViewById<TextView>(R.id.mostrarCuadratica)
 
 
+
         fun limpiar(){
             respuestaX1.setText("")
             respuestaX2.setText("")
@@ -33,6 +34,57 @@ class EcuacionesCuadraticas : AppCompatActivity() {
             mostrarEc.setText("")
 
         }
+
+        fun operaciones(varA1:Double, varB1:Double, varC1:Double){
+
+            val x1 = (-varB1 + sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
+            val x2 = (-varB1 - sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
+
+            if((varB1*varB1 - 4*varA1*varC1) >= 0.0){
+                val resX1 = x1.toString()
+                val resX2 = x2.toString()
+
+
+
+                if(x1 == x2){
+                    limpiar()
+                    respuestaX1.setText("Única solución: X = "+resX1)
+                    mostrarMensaje.setText("Su ecuación cuadrática es:")
+                    mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
+                }else{
+                    limpiar()
+                    respuestaX1.setText("X1 = "+resX1)
+                    respuestaX2.setText("X2 = "+resX2)
+                    mostrarMensaje.setText("Su ecuación cuadrática es:")
+                    mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
+                }
+
+            }else{
+                limpiar()
+
+                var determinante = ((varB1*varB1) - (4*varA1*varC1))
+                val real = -varB1 / (2 * varA1)
+                val complejo = sqrt(-determinante) /(2 * varA1)
+
+
+                if(real == 0.0){
+                    complejo.toString()
+                    respuestaX1.setText("X1 = + ${complejo}i")
+                    respuestaX2.setText("X2 = - ${complejo}i")
+                    mostrarMensaje.setText("Su ecuación cuadrática es:")
+                    mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
+
+                }else{
+                    real.toString()
+                    complejo.toString()
+                    respuestaX1.setText("X1 = ${real} + ${complejo}i")
+                    respuestaX2.setText("X2 = ${real} - ${complejo}i")
+                    mostrarMensaje.setText("Su ecuación cuadrática es:")
+                    mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
+                }
+            }
+        }
+
 
         fun limpiarPlainText(){
             //Lipiando plain text
@@ -50,19 +102,16 @@ class EcuacionesCuadraticas : AppCompatActivity() {
         btnCalcular.setOnClickListener {
 
 
-
-
-
-
             fun calcular(){
 
 
                 val varA1 = (a1.getText().toString()).toDouble()
 
-
                 //PRIMERA CONDICIÓN
 
-                if(b1.getText().toString() == "" && c1.getText().toString() == ""){
+
+
+                if(b1.getText().toString() == "" && c1.getText().toString() == "" ){
 
                     val varB1 = 0.0
                     val varC1 = 0.0
@@ -79,32 +128,9 @@ class EcuacionesCuadraticas : AppCompatActivity() {
                     val varB1 = 0.0
                     val varC1 = (c1.getText().toString()).toDouble()
 
-                    val x1 = (-varB1 + sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
-                    val x2 = (-varB1 - sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
-
-                    if((varB1*varB1 - 4*varA1*varC1) >= 0.0){
-                        val resX1 = x1.toString()
-                        val resX2 = x2.toString()
+                    operaciones(varA1, varB1, varC1)
 
 
-
-                        if(x1 == x2){
-                            limpiar()
-                            respuestaX1.setText("Única solución: X = "+resX1)
-                            mostrarMensaje.setText("Su ecuación cuadrática es:")
-                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
-                        }else{
-                            limpiar()
-                            respuestaX1.setText("X1 = "+resX1)
-                            respuestaX2.setText("X2 = "+resX2)
-                            mostrarMensaje.setText("Su ecuación cuadrática es:")
-                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
-                        }
-
-                    }else{
-                        limpiar()
-                        respuestaX1.setText("No existe solución en el campo de los números reales.")
-                    }
 
                     //TERCERA CONDICIÓN
                 }else if(c1.getText().toString() == ""){
@@ -112,77 +138,20 @@ class EcuacionesCuadraticas : AppCompatActivity() {
                     val varB1 = (b1.getText().toString()).toDouble()
                     val varC1 = 0.0
 
-                    val x1 = (-varB1 + sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
-                    val x2 = (-varB1 - sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
-
-                    if((varB1*varB1 - 4*varA1*varC1) >= 0.0){
-                        val resX1 = x1.toString()
-                        val resX2 = x2.toString()
-
-
-
-                        if(x1 == x2){
-                            limpiar()
-                            respuestaX1.setText("Única solución: X = "+resX1)
-                            mostrarMensaje.setText("Su ecuación cuadrática es:")
-                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
-                        }else{
-                            limpiar()
-                            respuestaX1.setText("X1 = "+resX1)
-                            respuestaX2.setText("X2 = "+resX2)
-                            mostrarMensaje.setText("Su ecuación cuadrática es:")
-                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
-                        }
-
-                    }else{
-                        limpiar()
-                        respuestaX1.setText("No existe solución en el campo de los números reales.")
-                    }
+                    operaciones(varA1, varB1, varC1)
 
                     //CUARTA CONDICIÓN
                 }else if(b1.getText().toString() != "" && c1.getText().toString() != ""){
                     val varB1 = (b1.getText().toString()).toDouble()
                     val varC1 = (c1.getText().toString()).toDouble()
 
-                    val x1 = (-varB1 + sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
-                    val x2 = (-varB1 - sqrt((varB1*varB1) - (4*varA1*varC1)))/(2*varA1)
-
-                    if((varB1*varB1 - 4*varA1*varC1) >= 0.0){
-                        val resX1 = x1.toString()
-                        val resX2 = x2.toString()
-
-
-
-                        if(x1 == x2){
-                            limpiar()
-                            respuestaX1.setText("Única solución: X = "+resX1)
-                            mostrarMensaje.setText("Su ecuación cuadrática es:")
-                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
-                        }else{
-                            limpiar()
-                            respuestaX1.setText("X1 = "+resX1)
-                            respuestaX2.setText("X2 = "+resX2)
-                            mostrarMensaje.setText("Su ecuación cuadrática es:")
-                            mostrarEc.setText("("+varA1.toInt()+")χ² + ("+varB1.toInt()+")χ + ("+varC1.toInt()+") = 0")
-                        }
-
-                    }else{
-                        limpiar()
-                        respuestaX1.setText("No existe solución en el campo de los números reales.")
-                    }
+                    operaciones(varA1, varB1, varC1)
 
                 }
 
-
-
-
-
-
-
-
             }
 
-            if((a1.getText().toString()) == ""){
+            if((a1.getText().toString()) == "" || (a1.getText().toString()) == "-" || (a1.getText().toString()) == "+"){
                 limpiar()
                 respuestaX1.setText("La variable A no puede ser nula.")
             }else if((a1.getText().toString()).toDouble() == 0.0){
@@ -191,15 +160,6 @@ class EcuacionesCuadraticas : AppCompatActivity() {
             }else{
                 calcular()
             }
-
-
-
-
-
-
-
-
-
         }
 
 
